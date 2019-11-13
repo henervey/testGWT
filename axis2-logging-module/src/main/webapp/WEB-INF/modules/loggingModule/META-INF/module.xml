@@ -1,0 +1,25 @@
+<module name="logging" class="fr.cnrs.mdm.referentiel.ws.LoggingModule">
+   <InFlow>
+        <handler name="InFlowLogHandler" class="fr.cnrs.mdm.referentiel.ws.LoggingHandler">
+        <order phase="loggingPhase" />
+        </handler>
+   </InFlow>
+
+   <OutFlow>
+        <handler name="OutFlowLogHandler" class="fr.cnrs.mdm.referentiel.ws.LoggingHandler">
+        <order phase="loggingPhase"/>
+        </handler>
+   </OutFlow>
+
+   <OutFaultFlow>
+        <handler name="FaultOutFlowLogHandler" class="fr.cnrs.mdm.referentiel.ws.LoggingHandler">
+        <order phase="loggingPhase"/>
+        </handler>
+   </OutFaultFlow>
+
+   <InFaultFlow>
+        <handler name="FaultInFlowLogHandler" class="fr.cnrs.mdm.referentiel.ws.LoggingHandler">
+        <order phase="loggingPhase"/>
+        </handler>
+   </InFaultFlow>
+</module>

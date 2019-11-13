@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- minitorInterval is used to trigging the change in the file configuration Automatic Reconfiguration-->
+<Configuration status="DEBUG" monitorInterval="5">
+	<!-- configuration -->
+	<Properties>
+		<!-- <Property name="LOG_DIR">${log4j:configParentLocation}/ebxLog</Property> -->
+		<Property name="LOG_DIR">${sys:ebx.home}/ebxLog</Property>
+
+		<Property name="ARCHIVE">${LOG_DIR}/archive</Property>
+		<Property name="PATTERN">%-5level %d [%t] %c:%M(%L): %m%n</Property>
+	</Properties>
+
+	<!-- List of Appenders -->
+
+	<Appenders>
+		<!-- console log -->
+		<Console name="STDOUT" target="SYSTEM_OUT">
+			<PatternLayout pattern="${PATTERN}" />
+		</Console>
+		<!-- file log -->
+
+		<!-- each day we rolle file log and archieve log with the format filename-date 
+			the interval means 1 day if the format is date -->
+	<!-- see : https://github.com/apache/logging-log4j2/tree/master/log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling-->		
+				
+	<!--/**
+ * Rolls a file over based on time.
+ */
+@Plugin(name = "TimeBasedTriggeringPolicy", category = Core.CATEGORY_NAME, printObject = true)
+public final class TimeBasedTriggeringPolicy extends AbstractTriggeringPolicy-->
+
+<!--
+		<RollingFile name="axis" fileName="${LOG_DIR}/axis.log"
+			filePattern="${ARCHIVE}/axis.log.%d{yyyy-MM-dd}.gz">
+			<PatternLayout pattern="${PATTERN}" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+			<DefaultRolloverStrategy max="5" />
+		</RollingFile>
+
+		<RollingFile name="axisTracer" fileName="${LOG_DIR}/axis-trace.log"
+			filePattern="${ARCHIVE}/axis-trace.log.%d{yyyy-MM-dd}.gz">
+			<PatternLayout pattern="${PATTERN}" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+			<DefaultRolloverStrategy max="2" />
+		</RollingFile>
+-->
+		<RollingFile name="axis2InFlowTiers" fileName="${LOG_DIR}/axis2InFlowTiers.log"
+			filePattern="${ARCHIVE}/axis2InFlowTiers.log.%d{yyyy-MM-dd}.gz">
+			<PatternLayout pattern="${PATTERN}" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+			<DefaultRolloverStrategy max="2" />
+		</RollingFile>
+
+		<RollingFile name="axis2OutFlowTiers" fileName="${LOG_DIR}/axis2OutFlowTiers.log"
+			filePattern="${ARCHIVE}/axis2OutFlowTiers.log.%d{yyyy-MM-dd}.gz">
+			<PatternLayout pattern="${PATTERN}" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+			<DefaultRolloverStrategy max="2" />
+		</RollingFile>
+
+		<RollingFile name="axis2InFlowPersonnelLabintel"
+			fileName="${LOG_DIR}/axis2InFlowPersonnelLabintel.log"
+			filePattern="${ARCHIVE}/axis2InFlowPersonnelLabintel.log.%d{yyyy-MM-dd}.gz">
+			<PatternLayout pattern="${PATTERN}" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+			<DefaultRolloverStrategy max="2" />
+		</RollingFile>
+
+
+		<RollingFile name="axis2OutFlowPersonnelLabintel"
+			fileName="${LOG_DIR}/axis2OutFlowPersonnelLabintel.log"
+			filePattern="${ARCHIVE}/axis2OutFlowPersonnelLabintel.log.%d{yyyy-MM-dd}.gz">
+			<PatternLayout pattern="${PATTERN}" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+			<DefaultRolloverStrategy max="2" />
+		</RollingFile>
+
+
+		<RollingFile name="axis2InFlowPersonnelSirhus"
+			fileName="${LOG_DIR}/axis2InFlowPersonnelSirhus.log"
+			filePattern="${ARCHIVE}/axis2InFlowPersonnelSirhus.log.%d{yyyy-MM-dd}.gz">
+			<PatternLayout pattern="${PATTERN}" />
+
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+			<DefaultRolloverStrategy max="2" />
+		</RollingFile>
+
+
+		<RollingFile name="axis2OutFlowPersonnelSirhus"
+			fileName="${LOG_DIR}/axis2OutFlowPersonnelSirhus.log"
+			filePattern="${ARCHIVE}/axis2OutFlowPersonnelSirhus.log.%d{yyyy-MM-dd}.gz">
+			<PatternLayout pattern="${PATTERN}" />
+
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+			<DefaultRolloverStrategy max="2" />
+		</RollingFile>
+
+		<!-- InF FluxSortantPersonneReference -->
+		<RollingFile name="axis2InFlowFluxSortantPersonneReference"
+			fileName="${LOG_DIR}/axis2InFlowFluxSortantPersonneReference.log"
+			filePattern="${ARCHIVE}/axis2InFlowFluxSortantPersonneReference.log.%d{yyyy-MM-dd}.gz">
+			<PatternLayout pattern="${PATTERN}" />
+
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+			<DefaultRolloverStrategy max="2" />
+		</RollingFile>
+
+		<!-- out FluxSortantPersonneReference -->
+
+		<RollingFile name="axis2OutFlowFluxSortantPersonneReference"
+			fileName="${LOG_DIR}/axis2OutFlowFluxSortantPersonneReference.log"
+			filePattern="${ARCHIVE}/axis2OutFlowFluxSortantPersonneReference.log.%d{yyyy-MM-dd}.gz">
+			<PatternLayout pattern="${PATTERN}" />
+
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+			<DefaultRolloverStrategy max="2" />
+		</RollingFile>
+
+
+		<RollingFile name="axis2InFlowFluxSortantStructureReference"
+			fileName="${LOG_DIR}/axis2InFlowFluxSortantStructureReference.log"
+			filePattern="${ARCHIVE}/axis2InFlowFluxSortantStructureReference.log.%d{yyyy-MM-dd}.gz">
+			<PatternLayout pattern="${PATTERN}" />
+
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+			<DefaultRolloverStrategy max="2" />
+		</RollingFile>
+
+
+		<RollingFile name="axis2OutFlowFluxSortantStructureReference"
+			fileName="${LOG_DIR}/axis2OutFlowFluxSortantStructureReference.log"
+			filePattern="${ARCHIVE}/axis2OutFlowFluxSortantStructureReference.log.%d{yyyy-MM-dd}.gz">
+			<PatternLayout pattern="${PATTERN}" />
+
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+			<DefaultRolloverStrategy max="2" />
+		</RollingFile>
+
+
+
+		<RollingFile name="axis2InFlowFluxEntrantStructures"
+			fileName="${LOG_DIR}/axis2InFlowFluxEntrantStructures.log"
+			filePattern="${ARCHIVE}/axis2InFlowFluxEntrantStructures.log.%d{yyyy-MM-dd}.gz">
+			<PatternLayout pattern="${PATTERN}" />
+
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+			<DefaultRolloverStrategy max="2" />
+		</RollingFile>
+
+
+		<RollingFile name="axis2OutFlowFluxEntrantStructures"
+			fileName="${LOG_DIR}/axis2OutFlowFluxEntrantStructures.log"
+			filePattern="${ARCHIVE}/axis2OutFlowFluxEntrantStructures.log.%d{yyyy-MM-dd}.gz">
+			<PatternLayout pattern="${PATTERN}" />
+
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+			<DefaultRolloverStrategy max="2" />
+		</RollingFile>
+
+
+
+		<RollingFile name="axis2InFlowFluxEntrantProjetStructureOtarie"
+			fileName="${LOG_DIR}/axis2InFlowFluxEntrantProjetStructureOtarie.log"
+			filePattern="${ARCHIVE}/axis2InFlowFluxEntrantProjetStructureOtarie.log.%d{yyyy-MM-dd}.gz">
+			<PatternLayout pattern="${PATTERN}" />
+
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+			<DefaultRolloverStrategy max="2" />
+		</RollingFile>
+
+		<RollingFile name="axis2OutFlowFluxEntrantProjetStructureOtarie"
+			fileName="${LOG_DIR}/axis2OutFlowFluxEntrantProjetStructureOtarie.log"
+			filePattern="${ARCHIVE}/axis2OutFlowFluxEntrantProjetStructureOtarie.log.%d{yyyy-MM-dd}.gz">
+			<PatternLayout pattern="${PATTERN}" />
+
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+			<DefaultRolloverStrategy max="2" />
+		</RollingFile>
+
+
+
+		<RollingFile name="axis2InFlowSousStructures"
+			fileName="${LOG_DIR}/axis2InFlowSousStructures.log" filePattern="${ARCHIVE}/axis2InFlowSousStructures.log.%d{yyyy-MM-dd}.gz">
+			<PatternLayout pattern="${PATTERN}" />
+
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+			<DefaultRolloverStrategy max="2" />
+		</RollingFile>
+
+		<RollingFile name="axis2OutFlowSousStructures"
+			fileName="${LOG_DIR}/axis2OutFlowSousStructures.log"
+			filePattern="${ARCHIVE}/axis2OutFlowSousStructures.log.%d{yyyy-MM-dd}.gz">
+			<PatternLayout pattern="${PATTERN}" />
+
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+			<DefaultRolloverStrategy max="2" />
+		</RollingFile>
+
+
+
+		<RollingFile name="axis2InFlowPartenaire" fileName="${LOG_DIR}/axis2InFlowPartenaire.log"
+			filePattern="${ARCHIVE}/axis2InFlowPartenaire.log.%d{yyyy-MM-dd}.gz">
+			<PatternLayout pattern="${PATTERN}" />
+
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+			<DefaultRolloverStrategy max="2" />
+		</RollingFile>
+
+		<RollingFile name="axis2OutFlowPartenaire" fileName="${LOG_DIR}/axis2OutFlowPartenaire.log"
+			filePattern="${ARCHIVE}/axis2OutFlowPartenaire.log.%d{yyyy-MM-dd}.gz">
+			<PatternLayout pattern="${PATTERN}" />
+
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+			<DefaultRolloverStrategy max="2" />
+		</RollingFile>
+
+		<RollingFile name="axis2InFlowBanque" fileName="${LOG_DIR}/axis2InFlowBanque.log"
+			filePattern="${ARCHIVE}/axis2InFlowBanque.log.%d{yyyy-MM-dd}.gz">
+			<PatternLayout pattern="${PATTERN}" />
+
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+			<DefaultRolloverStrategy max="2" />
+		</RollingFile>
+
+		<RollingFile name="axis2OutFlowBanque" fileName="${LOG_DIR}/axis2OutFlowBanque.log"
+			filePattern="${ARCHIVE}/axis2OutFlowPBanque.log.%d{yyyy-MM-dd}.gz">
+			<PatternLayout pattern="${PATTERN}" />
+
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+			<DefaultRolloverStrategy max="2" />
+		</RollingFile>
+
+		<!-- Write the log to the socle-trace file-->
+		<RollingFile name="socle" fileName="${LOG_DIR}/socle-reseda.log"
+			filePattern="${ARCHIVE}/socle-reseda.log.%d{yyyy-MM-dd}.gz">
+			<PatternLayout pattern="${PATTERN}" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+			</Policies>
+			<DefaultRolloverStrategy max="5" />
+		</RollingFile>
+		
+		<!-- Log files for portail -->
+		<RollingFile name="portail" fileName="${LOG_DIR}/portail.log"
+			filePattern="${ARCHIVE}/portail.log.%d{yyyy-MM-dd}.gz">
+			<PatternLayout pattern="${PATTERN}" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+			</Policies>
+			<DefaultRolloverStrategy max="5" />
+		</RollingFile>
+		
+		<RollingFile name="portailtracer" fileName="${LOG_DIR}/portail-trace.log"
+			filePattern="${ARCHIVE}/portail-trace.log.%d{yyyy-MM-dd}.gz">
+			<PatternLayout pattern="${PATTERN}" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+			</Policies>
+			<DefaultRolloverStrategy max="2" />
+		</RollingFile>
+	</Appenders>
+
+	<!-- List of loggers -->
+	<Loggers>
+		<Root level="TRACE">
+		<!-- 	<<AppenderRef ref="axis" level="DEBUG" /> -->
+		
+			<AppenderRef ref="STDOUT" level="ERROR" />
+		</Root>
+		<!-- The log for the package begining with fr.cnrs-->
+		<Logger name="fr.cnrs" level="DEBUG" additivity="false">
+			<AppenderRef ref="socle" level="INFO"/> <!-- Write the log to the socle-trace file for all the log whose level is at least INFO -->
+			<AppenderRef ref="STDOUT" level="DEBUG"/> <!-- Write the log to the console for all the log whose level is at least DEBUG -->
+		</Logger>
+
+		<Logger name="fr.cnrs.mdm.referentiel.personnel.webservice.sirhus" additivity="false">
+			<AppenderRef ref="socle" level="TRACE"/>
+			<AppenderRef ref="STDOUT" level="TRACE"/>
+		</Logger>
+		
+		<!-- The log for portail -->
+		<Logger name="fr.cnrs.mdm.socle.portail" level="DEBUG" additivity="false">
+			<AppenderRef ref="portail" level="DEBUG"/>
+			<AppenderRef ref="STDOUT" level="INFO"/>
+		</Logger>
+		<Logger name="fr.cnrs.mdm.socle.portail.servlet" level="TRACE" additivity="false">
+			<AppenderRef ref="portailtracer" level="TRACE"/>
+			<AppenderRef ref="STDOUT" level="INFO"/>
+		</Logger>
+		
+		<Logger
+			name="axis2InFlowTiers"
+			level="DEBUG" additivity="false">
+			<AppenderRef ref="axis2InFlowTiers" level="DEBUG" />
+			<AppenderRef ref="STDOUT" level="DEBUG" />
+		</Logger>
+
+		<Logger
+			name="axis2OutFlowTiers"
+			level="DEBUG" additivity="false">
+			<AppenderRef ref="axis2OutFlowTiers" level="DEBUG" />
+			<AppenderRef ref="STDOUT" level="DEBUG" />
+		</Logger>
+
+		<Logger
+			name="axis2InFlowPersonnelLabintel"
+			level="DEBUG" additivity="false">
+			<AppenderRef ref="axis2InFlowPersonnelLabintel" level="DEBUG" />
+			<AppenderRef ref="STDOUT" level="DEBUG" />
+		</Logger>
+		<Logger
+			name="axis2OutFlowPersonnelLabintel"
+			level="DEBUG" additivity="false">
+			<AppenderRef ref="axis2OutFlowPersonnelLabintel" level="DEBUG" />
+			<AppenderRef ref="STDOUT" level="DEBUG" />
+		</Logger>
+
+<!-- fr.cnrs.mdm.referentiel.personnel.webservice.sirhus.FluxEntrantPersonnelSirhusService -->
+		<Logger name="axis2InFlowPersonnelSirhus"
+			level="DEBUG" additivity="false">
+			<AppenderRef ref="axis2InFlowPersonnelSirhus" level="DEBUG" />
+			<AppenderRef ref="STDOUT" level="DEBUG" />
+		</Logger>
+		<!-- fr.cnrs.mdm.referentiel.personnel.webservice.sirhus.helper.pivot -->
+		<Logger
+			name="axis2OutFlowPersonnelSirhus"
+			level="DEBUG" additivity="false">
+			<AppenderRef ref="axis2OutFlowPersonnelSirhus" level="DEBUG" />
+			<AppenderRef ref="STDOUT" level="DEBUG" />
+		</Logger>
+
+
+		<Logger
+			name="axis2InFlowFluxSortantPersonneReference"
+			level="DEBUG" additivity="false">
+			<AppenderRef ref="axis2InFlowFluxSortantPersonneReference"
+				level="DEBUG" />
+			<AppenderRef ref="STDOUT" level="DEBUG" />
+		</Logger>
+
+		<Logger
+			name="axis2OutFlowFluxSortantPersonneReference"
+			level="DEBUG" additivity="false">
+			<AppenderRef ref="axis2OutFlowFluxSortantPersonneReference"
+				level="DEBUG" />
+			<AppenderRef ref="STDOUT" level="DEBUG" />
+		</Logger>
+
+
+		<Logger
+			name="axis2InFlowFluxSortantStructureReference"
+			level="DEBUG" additivity="false">
+			<AppenderRef ref="axis2InFlowFluxSortantStructureReference"
+				level="DEBUG" />
+			<AppenderRef ref="STDOUT" level="DEBUG" />
+		</Logger>
+
+		<Logger
+			name="axis2OutFlowFluxSortantStructureReference"
+			level="DEBUG" additivity="false">
+			<AppenderRef ref="axis2OutFlowFluxSortantStructureReference"
+				level="DEBUG" />
+			<AppenderRef ref="STDOUT" level="DEBUG" />
+		</Logger>
+
+
+
+	<Logger name="axis2InFlowFluxEntrantStructures"
+			level="DEBUG" additivity="false">
+			<AppenderRef ref="axis2InFlowFluxEntrantStructures"
+				level="DEBUG" />
+			<AppenderRef ref="STDOUT" level="DEBUG" />
+		</Logger>
+
+
+		<Logger name="axis2OutFlowFluxEntrantStructures"
+			level="DEBUG" additivity="false">
+			<AppenderRef ref="axis2OutFlowFluxEntrantStructures"
+				level="DEBUG" />
+			<AppenderRef ref="STDOUT" level="DEBUG" />
+		</Logger>
+		
+
+		<Logger name="axis2InFlowFluxEntrantProjetStructureOtarie"
+			level="DEBUG" additivity="false">
+			<AppenderRef ref="axis2InFlowFluxEntrantProjetStructureOtarie"
+				level="DEBUG" />
+			<AppenderRef ref="STDOUT" level="DEBUG" />
+		</Logger>
+
+
+		<Logger name="axis2OutFlowFluxEntrantProjetStructureOtarie"
+			level="DEBUG" additivity="false">
+			<AppenderRef ref="axis2OutFlowFluxEntrantProjetStructureOtarie"
+				level="DEBUG" />
+			<AppenderRef ref="STDOUT" level="DEBUG" />
+		</Logger>
+		
+
+		<Logger
+			name="axis2InFlowSousStructures"
+			level="DEBUG" additivity="false">
+			<AppenderRef ref="axis2InFlowSousStructures" level="DEBUG" />
+			<AppenderRef ref="STDOUT" level="DEBUG" />
+		</Logger>
+
+		<Logger
+			name="axis2OutFlowSousStructures"
+			level="DEBUG" additivity="false">
+			<AppenderRef ref="axis2OutFlowSousStructures" level="DEBUG" />
+			<AppenderRef ref="STDOUT" level="DEBUG" />
+		</Logger>
+
+		<Logger
+			name="axis2InFlowPartenaire"
+			level="DEBUG" additivity="false">
+			<AppenderRef ref="axis2InFlowPartenaire" level="DEBUG" />
+			<AppenderRef ref="STDOUT" level="DEBUG" />
+		</Logger>
+
+		<Logger
+			name="axis2OutFlowPartenaire"
+			level="DEBUG" additivity="false">
+			<AppenderRef ref="axis2OutFlowPartenaire" level="DEBUG" />
+			<AppenderRef ref="STDOUT" level="DEBUG" />
+		</Logger>
+
+
+		<Logger
+			name="axis2InFlowBanque"
+			level="DEBUG" additivity="false">
+			<AppenderRef ref="axis2InFlowBanque" level="DEBUG" />
+			<AppenderRef ref="STDOUT" level="DEBUG" />
+		</Logger>
+
+
+		<Logger
+			name="axis2OutFlowBanque"
+			level="DEBUG" additivity="false">
+			<AppenderRef ref="axis2OutFlowBanque" level="DEBUG" />
+			<AppenderRef ref="STDOUT" level="DEBUG" />
+		</Logger>
+
+	</Loggers>
+</Configuration>
