@@ -12,7 +12,7 @@
    </OutFlow>
 
    <OutFaultFlow>
-        <handler name="FaultOutFlowLogHandler" class="fr.cnrs.mdm.referentiel.ws.LoggingHandler">
+        <handler name="FaultOutFlowLogHandle" class="fr.cnrs.mdm.referentiel.ws.LoggingHandler">
         <order phase="loggingPhase"/>
         </handler>
    </OutFaultFlow>
