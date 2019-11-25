@@ -2023,7 +2023,15 @@
             </display>
         </actionButton>
     </toolbarNode>
-   
+    <toolbarNode>
+        <id>1584</id>
+        <parent>1456</parent>
+        <type>SEPARATOR</type>
+        <ordering>3000</ordering>
+        <separator>
+            <width>20</width>
+        </separator>
+    </toolbarNode>
     <toolbarNode>
         <id>1585</id>
         <parent>1456</parent>
